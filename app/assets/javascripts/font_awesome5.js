@@ -1,7 +1,2 @@
 //= require fontawesome-all.min
-
-document.addEventListener("turbolinks:before-render", function(event) {
-    FontAwesome.dom.i2svg({
-        node: event.data.newBody
-    });
-});
+//= require fontawesome5-init

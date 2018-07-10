@@ -46,6 +46,16 @@ In your `application.js`, include the javascript file:
 #= require font_awesome5
 ```
 
+If you want to specify which styles you include, replace the global `font_awesome5` javascript with this, selecting any combination of regular/solid/brands:
+
+```javascript
+#= require font_awesome
+#= require font_awesome-regular
+#= require font_awesome-solid
+#= require font_awesome-brands
+#= require font_awesome5-init
+```
+
 ### 2. Install as webfont with CSS (old way)
 In your `application.css`, include the css file:
 ```css
@@ -59,14 +69,14 @@ Gem provides FontAwesome icons through helper. In your views just call `fa_icon`
 ```ruby
 fa_icon('camera-retro')
 # => <i class="fas fa-camera-retro"></i>
- 
+
 fa_icon('camera-retro', style: 'color: Tomato')
 # => <i class="fas fa-camera-retro" style="color:Tomato"></i>
-  
+
 fa_icon('camera-retro', class: 'my-class', text: 'Camera', size: '3x')
 # => <i class="fas fa-camera-retro my-class fa-3x"></i>
 # =>  <span>Camera</span>
- 
+
 fa_icon(:camera_retro, class: 'my-class')
 # => <i class="fas fa-camera-retro my-class"></i>
 ```
@@ -80,33 +90,33 @@ If you want to use different icon style you can do this through ```type``` attri
 | Solid         | :fas  |:solid  |
 | Regular       | :far  |:regular|
 | Light         | :fal  |:light  |
-| Brand         | :fab  |:brand  | 
+| Brand         | :fab  |:brand  |
 
 
 ```ruby
 fa_icon('camera-retro', type: :solid) #Default
 # => <i class="fas fa-camera-retro"></i>
- 
+
 fa_icon('camera-retro', type: :regular)
 # => <i class="far fa-camera-retro"></i>
-  
+
 fa_icon('camera-retro', type: :light)
 # => <i class="fal fa-camera-retro"></i>
- 
+
 fa_icon('camera-retro', type: :brand)
 # => <i class="fab fa-camera-retro"></i>
-     
+
 fa_icon('camera-retro', type: :fab)
 # => <i class="fab fa-camera-retro"></i>
-     
-```  
+
+```
 
 ### Animations and data attributes
 FontAwesome 5 provides new animations and data attributes. Here are some examples how to use them:
 ```ruby
 fa_icon('camera-retro', animation: 'spin')
 # => <i class="fas fa-camera-retro fa-spin"></i>
- 
+
 fa_icon('camera-retro', data: {'fa-transform': 'rotate-90'})
 # => <i class="fas fa-camera-retro" data-fa-transform="rotate-90"></i>
 
@@ -126,7 +136,7 @@ Following ```fa_layered_icon``` examples are written in ```haml```.
   = fa_icon 'circle'
 # => <span class="fa-layers fa-fw">
 # =>   <i class="fas fa-circle"></i>
-# => </span>  
+# => </span>
 
 = fa_layered_icon style: 'background: MistyRose', size: '4x' do
   = fa_icon 'circle', style: 'color: Tomato'
@@ -135,7 +145,7 @@ Following ```fa_layered_icon``` examples are written in ```haml```.
 # =>   <span class="fa-layers fa-fw" style="background: MistyRose">
 # =>     <i class="fas fa-circle" style="color: Tomato"></i>
 # =>     <i class="fas fa-times fa-inverse" data-fa-transform="shrink-6"></i>
-# =>   </span> 
+# =>   </span>
 # => </div>
 
 = fa_layered_icon aligned: :false do
@@ -145,7 +155,7 @@ Following ```fa_layered_icon``` examples are written in ```haml```.
 # => <span class="fa-layers">
 # =>   <i class="fas fa-circle"></i>
 # =>   <span class="fa-layers-counter">1,419</span>
-# => </span>  
+# => </span>
 ```
 
 #### Stacked icon examples
@@ -190,7 +200,7 @@ More examples can be found in specs.
 More animation and data attributes can be found on [FontAwesome documentation](https://fontawesome.com/how-to-use/svg-with-js).
 
 ## FontAwesome 5 Pro icons
-Due to licence policy this gem pack only free FA5 icons. However ```fa_icon``` helper support all types of icons. If you buyed FA5 Pro icons and want to use helpers provided by this gem it's possible.   
+Due to licence policy this gem pack only free FA5 icons. However ```fa_icon``` helper support all types of icons. If you buyed FA5 Pro icons and want to use helpers provided by this gem it's possible.
 1. Add this gem to your ```Gemfile``` without including anything to ```application.css``` and ```application.js```.
 2. Download your FA5 pro icons and unpack them.
 3. Now you will have to manualy include all FA5 files you want to use to your ```/assets``` folder.
